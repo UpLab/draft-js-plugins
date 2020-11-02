@@ -5741,6 +5741,13 @@ dotenv@^8.0.0:
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-8.2.0.tgz#97e619259ada750eea3e4ea3e26bceea5424b16a"
   integrity sha512-8sJ78ElpbDJBHNeBzUbUVLsqKdccaa/BXF1uPTw3GrvQTBgrQrtObr2mUrE38vzYd8cEv+m/JBfDLioYcfXoaw==
 
+draft-js-buttons@latest:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/draft-js-buttons/-/draft-js-buttons-2.0.2.tgz#d96d0dcec9e224a9d62f2543a50f5f1cbef84000"
+  integrity sha512-qC3vkZ4ZvKe86Uskf5CsZxgo4Rt6ITAE51sbiI5YCMasanXdMVRwbF4fQonMyahds1tgj9EeBNePOBnlKTz9gQ==
+  dependencies:
+    clsx "^1.0.4"
+
 draft-js-plugins-utils@2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/draft-js-plugins-utils/-/draft-js-plugins-utils-2.0.2.tgz#b2f8572808a2b921e079ff44d03ac7e74fb2c598"
@@ -5845,10 +5852,10 @@ emoji-regex@^8.0.0:
   resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-8.0.0.tgz#e818fd69ce5ccfcb404594f842963bf53164cc37"
   integrity sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==
 
-emojione@^2.2.7:
-  version "2.2.7"
-  resolved "https://registry.yarnpkg.com/emojione/-/emojione-2.2.7.tgz#46457cf6b9b2f8da13ae8a2e4e547de06ee15e96"
-  integrity sha1-RkV89rmy+NoTroouTlR94G7hXpY=
+emojione@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/emojione/-/emojione-4.5.0.tgz#cf1f5d417394988296aef72bd3ac3d480890838a"
+  integrity sha512-Tq55Y3UgPOnayFDN+Qd6QMP0rpoH10a1nhSFN27s8gXW3qymgFIHiXys2ECYYAI134BafmI3qP9ni2rZOe9BjA==
 
 emojis-list@^2.0.0:
   version "2.1.0"
