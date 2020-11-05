@@ -1,5 +1,5 @@
 const getTypesByTrigger = (trigger) =>
-  [...trigger, ''].map(trigger => `${trigger}mention`);
+  trigger.map(trigger => `${trigger}mention`);
 
 const findMentionEntities = trigger => (
   contentBlock,
