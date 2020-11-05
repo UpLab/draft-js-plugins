@@ -1,4 +1,5 @@
-import { getTypesByTrigger } from './utils/getTypeByTrigger';
+const getTypesByTrigger = (trigger) =>
+  [...trigger, ''].map(trigger => `${trigger}mention`);
 
 const findMentionEntities = trigger => (
   contentBlock,
