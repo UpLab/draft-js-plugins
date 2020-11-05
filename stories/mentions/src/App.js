@@ -1,22 +1,23 @@
 import React, { Component } from 'react';
 import { EditorState } from 'draft-js';
 import Editor from 'draft-js-plugins-editor';
-import createMentionPlugin, { defaultSuggestionsFilter } from 'draft-js-mention-plugin';
+import createMentionPlugin, {
+  defaultSuggestionsFilter,
+} from 'draft-js-mention-plugin';
 import editorStyles from './editorStyles.css';
 import mentions from './mentions';
 
-const mentionPlugin = createMentionPlugin();
+const mentionPlugin = createMentionPlugin({ mentionTrigger: ['@', '#'] });
 const { MentionSuggestions } = mentionPlugin;
 const plugins = [mentionPlugin];
 
-export default class SimpleMentionEditor extends Component {
-
+export default class SimpleMentionEditor11 extends Component {
   state = {
     editorState: EditorState.createEmpty(),
     suggestions: mentions,
   };
 
-  onChange = (editorState) => {
+  onChange = editorState => {
     this.setState({
       editorState,
     });
@@ -30,7 +31,7 @@ export default class SimpleMentionEditor extends Component {
 
   onAddMention = () => {
     // get the mention object selected
-  }
+  };
 
   focus = () => {
     this.editor.focus();
@@ -43,7 +44,9 @@ export default class SimpleMentionEditor extends Component {
           editorState={this.state.editorState}
           onChange={this.onChange}
           plugins={plugins}
-          ref={(element) => { this.editor = element; }}
+          ref={element => {
+            this.editor = element;
+          }}
         />
         <MentionSuggestions
           onSearchChange={this.onSearchChange}

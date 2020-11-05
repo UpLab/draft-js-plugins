@@ -58,11 +58,6 @@
     "storybook": "start-storybook -p 6006 -s ./stories/public",
     "build-storybook": "build-storybook"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "*.js": [
       "prettier --write",

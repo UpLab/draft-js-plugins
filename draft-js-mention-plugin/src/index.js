@@ -96,10 +96,13 @@ export default (config = {}) => {
     mentionComponent,
     mentionSuggestionsComponent: MentionSuggestionsComponent = MentionSuggestions,
     entityMutability = 'SEGMENTED',
-    mentionTrigger = '@',
+    mentionTrigger: mentionTriggerNotArray = '@',
     mentionRegExp = defaultRegExp,
     supportWhitespace = false,
   } = config;
+  const mentionTrigger = Array.isArray(mentionTriggerNotArray)
+    ? mentionTriggerNotArray
+    : [mentionTriggerNotArray || '@'];
   const mentionSearchProps = {
     ariaProps,
     callbacks,

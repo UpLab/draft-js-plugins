@@ -127,15 +127,18 @@ export class MentionSuggestions extends Component {
       .map(
         ({ start, end }) =>
           (start === 0 &&
-            anchorOffset === this.props.mentionTrigger.length &&
-            plainText.charAt(anchorOffset) !== this.props.mentionTrigger &&
-            new RegExp(
-              String.raw({ raw: `${escapeRegExp(this.props.mentionTrigger)}` }),
-              'g'
-            ).test(plainText) &&
+            anchorOffset === 1 &&
+            !this.props.mentionTrigger.includes(
+              plainText.charAt(anchorOffset)
+            ) &&
+            this.props.mentionTrigger.find(trigger =>
+              new RegExp(
+                String.raw({ raw: `${escapeRegExp(trigger)}` }),
+                'g'
+              ).test(plainText)
+            ) &&
             anchorOffset <= end) || // @ is the first character
-          (anchorOffset > start + this.props.mentionTrigger.length &&
-            anchorOffset <= end) // @ is in the text or at the end
+          (anchorOffset > start + 1 && anchorOffset <= end) // @ is in the text or at the end}
       );
 
     if (selectionIsInsideWord.every(isInside => isInside === false))
