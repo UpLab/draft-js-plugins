@@ -13,5 +13,6 @@ export default (blockText: string, position: number, trigger: string) => {
     begin,
     end,
     matchingString,
+    triggerSymbol: str.slice(begin, begin + 1)
   };
 };

@@ -132,6 +132,7 @@
   "license": "MIT",
   "dependencies": {
     "draft-js": "^0.11.0",
+    "draft-js-single-line-plugin": "^2.0.5",
     "emojione": "^2.2.7",
     "eslint-plugin-import": "^2.2.0",
     "linkify-it": "^2.0.3",

@@ -9,19 +9,20 @@ const addMention = (
   mentionTrigger,
   entityMutability
 ) => {
-  const contentStateWithEntity = editorState
-    .getCurrentContent()
-    .createEntity(getTypeByTrigger(mentionTrigger), entityMutability, {
-      mention,
-    });
-  const entityKey = contentStateWithEntity.getLastCreatedEntityKey();
-
   const currentSelectionState = editorState.getSelection();
-  const { begin, end } = getSearchText(
+  const { begin, end, triggerSymbol } = getSearchText(
     editorState,
     currentSelectionState,
     mentionTrigger
   );
+
+  const contentStateWithEntity = editorState
+    .getCurrentContent()
+    .createEntity(getTypeByTrigger(triggerSymbol), entityMutability, {
+      mention,
+    });
+  const entityKey = contentStateWithEntity.getLastCreatedEntityKey();
+
 
   // get selection of the @mention search text
   const mentionTextSelection = currentSelectionState.merge({
