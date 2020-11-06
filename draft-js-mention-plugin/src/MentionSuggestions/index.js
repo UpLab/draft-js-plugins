@@ -145,6 +145,7 @@ export class MentionSuggestions extends Component {
       return removeList();
 
     const lastActiveOffsetKey = this.activeOffsetKey;
+    const lastTriggerSymbol = this.lastTriggerSymbol;
     this.activeOffsetKey = selectionIsInsideWord
       .filter(value => value === true)
       .keySeq()
@@ -154,7 +155,8 @@ export class MentionSuggestions extends Component {
       editorState,
       selection,
       this.activeOffsetKey,
-      lastActiveOffsetKey
+      lastActiveOffsetKey,
+      lastTriggerSymbol
     );
 
     // make sure the escaped search is reseted in the cursor since the user
@@ -194,7 +196,8 @@ export class MentionSuggestions extends Component {
     editorState,
     selection,
     activeOffsetKey,
-    lastActiveOffsetKey
+    lastActiveOffsetKey,
+    lastTriggerSymbol
   ) => {
     const { matchingString: searchValue, triggerSymbol } = getSearchText(
       editorState,
@@ -204,9 +207,11 @@ export class MentionSuggestions extends Component {
 
     if (
       this.lastSearchValue !== searchValue ||
-      activeOffsetKey !== lastActiveOffsetKey
+      activeOffsetKey !== lastActiveOffsetKey ||
+      triggerSymbol !== lastTriggerSymbol
     ) {
       this.lastSearchValue = searchValue;
+      this.lastTriggerSymbol = triggerSymbol;
       this.props.onSearchChange({ value: searchValue, triggerSymbol });
     }
   };
