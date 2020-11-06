@@ -32,7 +32,8 @@ export default class SimpleMentionEditor11 extends Component {
     });
   };
 
-  onSearchChange = ({ value }) => {
+  onSearchChange = ({ value, triggerSymbol }) => {
+    console.log(triggerSymbol);
     this.setState({
       suggestions: defaultSuggestionsFilter(value, mentions),
     });

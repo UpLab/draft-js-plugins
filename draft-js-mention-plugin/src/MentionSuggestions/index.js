@@ -196,7 +196,7 @@ export class MentionSuggestions extends Component {
     activeOffsetKey,
     lastActiveOffsetKey
   ) => {
-    const { matchingString: searchValue } = getSearchText(
+    const { matchingString: searchValue, triggerSymbol } = getSearchText(
       editorState,
       selection,
       this.props.mentionTrigger
@@ -207,7 +207,7 @@ export class MentionSuggestions extends Component {
       activeOffsetKey !== lastActiveOffsetKey
     ) {
       this.lastSearchValue = searchValue;
-      this.props.onSearchChange({ value: searchValue });
+      this.props.onSearchChange({ value: searchValue, triggerSymbol });
     }
   };
 
