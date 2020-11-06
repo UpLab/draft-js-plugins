@@ -125,10 +125,12 @@ export default (config = {}) => {
   return {
     MentionSuggestions: DecoratedMentionSuggestionsComponent,
     decorators: [
-      {
-        strategy: mentionStrategy(mentionTrigger),
-        component: DecoratedMention,
-      },
+      ...mentionTrigger.map(trigger => (
+        {
+          strategy: mentionStrategy([trigger]),
+          component: (props) => <DecoratedMention {...props} trigger={trigger} />,
+        })
+      ),
       {
         strategy: mentionSuggestionsStrategy(
           mentionTrigger,

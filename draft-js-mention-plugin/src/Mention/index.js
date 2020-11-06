@@ -22,9 +22,10 @@ const Mention = props => {
     decoratedText,
     className,
     contentState,
+    trigger
   } = props;
 
-  const combinedClassName = clsx(theme.mention, className);
+  const combinedClassName = clsx(theme.mention, className, `mention-trigger-${trigger.charCodeAt(0)}`);
   const mention = contentState.getEntity(entityKey).getData().mention;
 
   const Component =
@@ -37,6 +38,7 @@ const Mention = props => {
       theme={theme}
       className={combinedClassName}
       decoratedText={decoratedText}
+      trigger={trigger}
     >
       {children}
     </Component>
