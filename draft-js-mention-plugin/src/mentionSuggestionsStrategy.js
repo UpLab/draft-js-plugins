@@ -40,7 +40,7 @@ export default (
   const MENTION_REGEX = trigger.map(t =>
     supportWhiteSpace
       ? new RegExp(`${escapeRegExp(t)}(${regExp}|\\s){0,}`, 'g')
-      : new RegExp(`(\\s|^)${escapeRegExp(t)}${regExp}`, 'g')
+      : new RegExp(`${escapeRegExp(t)}[a-zA-Z0-9]*`, 'g')
   );
   return (contentBlock: Object, callback: Function) => {
     return findWithRegex(MENTION_REGEX, contentBlock, callback);

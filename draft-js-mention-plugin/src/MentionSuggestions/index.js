@@ -138,7 +138,7 @@ export class MentionSuggestions extends Component {
               ).test(plainText)
             ) &&
             anchorOffset <= end) || // @ is the first character
-          (anchorOffset > start + 1 && anchorOffset <= end) // @ is in the text or at the end}
+          (anchorOffset > start && anchorOffset <= end) // @ is in the text or at the end}
       );
 
     if (selectionIsInsideWord.every(isInside => isInside === false))
@@ -195,9 +195,6 @@ export class MentionSuggestions extends Component {
   onSearchChange = (
     editorState,
     selection,
-    activeOffsetKey,
-    lastActiveOffsetKey,
-    lastTriggerSymbol
   ) => {
     const { matchingString: searchValue, triggerSymbol } = getSearchText(
       editorState,
@@ -205,15 +202,9 @@ export class MentionSuggestions extends Component {
       this.props.mentionTrigger
     );
 
-    if (
-      this.lastSearchValue !== searchValue ||
-      activeOffsetKey !== lastActiveOffsetKey ||
-      triggerSymbol !== lastTriggerSymbol
-    ) {
-      this.lastSearchValue = searchValue;
-      this.lastTriggerSymbol = triggerSymbol;
-      this.props.onSearchChange({ value: searchValue, triggerSymbol });
-    }
+    this.lastSearchValue = searchValue;
+    this.lastTriggerSymbol = triggerSymbol;
+    this.props.onSearchChange({ value: searchValue, triggerSymbol });
   };
 
   onDownArrow = keyboardEvent => {
